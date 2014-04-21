@@ -9,6 +9,18 @@ class Response(ndb.Model):
 
 
 class SubmitPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/plain'
+        try:
+            import sys
+            sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+            import sympy
+        except ImportError:
+            self.response.out.write("No submodule")
+            return
+        self.response.out.write("Submodule")
+
+
     def post(self):
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.headers['Access-Control-Allow-Origin'] = '*'
