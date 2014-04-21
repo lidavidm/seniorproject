@@ -14,6 +14,7 @@ class SubmitPage(webapp2.RequestHandler):
         try:
             import os,sys
             sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+            self.response.out.write(str(sys.path))
             import sympy
         except ImportError:
             self.response.out.write("No submodule")
