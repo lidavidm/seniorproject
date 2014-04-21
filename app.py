@@ -12,7 +12,7 @@ class SubmitPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
         try:
-            import sys
+            import os,sys
             sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
             import sympy
         except ImportError:
