@@ -13,7 +13,7 @@ class SubmitPage(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/plain'
         try:
             import os,sys
-            sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+            sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)) + '/sympy')
             self.response.out.write(str(sys.path))
             self.response.out.write(os.listdir(os.path.abspath(os.path.dirname(__file__))))
             import sympy
